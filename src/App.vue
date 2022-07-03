@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <LoadingScreen v-if="loading.screen" />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -8,7 +9,27 @@
   </div>
 </template>
 
+
+<script>
+import { mapFields } from "vuex-map-fields";
+import LoadingScreen from "@/components/LoadingScreen.vue";
+
+export default {
+  name: "App",
+  components: {
+    LoadingScreen
+  },
+  computed: {
+    ...mapFields(["baseUrl", "loading"]),
+  },
+}
+
+</script>
+
 <style lang="scss">
+body{
+  overflow: hidden;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,18 +1,16 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Boiler Plate by Nay</h1>
+    <p v-if="isOnlyMobile()">Mobile</p>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import GlobalVue from "@/libs/Global.vue"
 
 export default {
+  extends: GlobalVue,
   name: "Home",
-  components: {
-    HelloWorld,
-  },
 };
 </script>
